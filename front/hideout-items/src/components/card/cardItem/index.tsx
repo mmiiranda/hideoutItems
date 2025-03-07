@@ -1,6 +1,9 @@
 'use client'
 
+import Link from "next/link";
+
 type Props = { 
+    id: number;
     name: string;
     imgUrl: string;
     date: Date
@@ -34,14 +37,16 @@ function formatDate(date : Date) {
 
 export function CardItem(props: Props){
     return (
-        <div className="bg-white flex flex-col w-64 shadow-lg cursor-pointer">
-            <div className="h-64">
-                <img src={props.imgUrl} alt={props.name} className="w-full h-full object-cover" />
+        <Link href={`item/${props.id}`}>
+            <div className="bg-white flex flex-col w-64 shadow-lg cursor-pointer">
+                <div className="h-64">
+                    <img src={props.imgUrl} alt={props.name} className="w-full h-full object-cover" />
+                </div>
+                <div className="flex justify-between px-5 py-4">
+                    <div className="font-bold"> {props.name}</div>
+                    <div className="color-[#a7a7a7]"> {formatDate(props.date)} </div>
+                </div>
             </div>
-            <div className="flex justify-between px-5 py-4">
-                <div className="font-bold"> {props.name}</div>
-                <div className="color-[#a7a7a7]"> {formatDate(props.date)} </div>
-            </div>
-        </div>
+        </Link>
     )
 }       

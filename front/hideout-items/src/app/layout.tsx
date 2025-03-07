@@ -14,7 +14,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className="min-h-[100dvh] bg-[#f0f2f5]"
+        className="min-h-[100dvh] bg-[#f0f2f5] flex flex-col"
       >
         <header 
           className="top-0 w-full border-b-2 bg-white border-black px-8 py-4 flex justify-between mb-2 shadow"
@@ -24,7 +24,9 @@ export default function RootLayout({
           </div>
           <div>Infos</div>
         </header>
-        {children}
+        <div className="w-full grid justify-center mt-8">
+          {children}
+        </div>
       </body>
     </html>
   );
